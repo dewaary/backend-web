@@ -12,7 +12,6 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->boolean('otp_verified')->default(false); 
             $table->timestamp('otp_sent_at')->nullable();
         });
     }
@@ -23,7 +22,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn(['otp_verified', 'otp_sent_at']);
+            $table->dropColumn('otp_sent_at');
         });
     }
 };

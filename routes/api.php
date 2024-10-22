@@ -8,6 +8,8 @@ use App\Http\Controllers\API\AdminController;
 Route::post('register', [ApiController::class, 'register']);
 Route::post('login', [ApiController::class, 'login']);
 Route::post('verify-otp', [ApiController::class, 'verifyOtp'])->middleware('auth:sanctum');
+Route::post('resend-otp', [ApiController::class, 'resendOtp'])->middleware('auth:sanctum');
+
 
 Route::group([
     "middleware" => ["auth:sanctum"]
